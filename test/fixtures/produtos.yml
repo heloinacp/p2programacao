@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  idProduto: 1
+  nome: MyString
+  descricao: MyString
+  valor: 1.5
+  foto: MyString
+
+two:
+  idProduto: 1
+  nome: MyString
+  descricao: MyString
+  valor: 1.5
+  foto: MyString

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Código do Item:</strong>
+  <%= @item.idItem %>
+</p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @item.nome %>
+</p>
+
+<p>
+  <strong>Quantidade:</strong>
+  <%= @item.qtd %>
+</p>
+
+<p>
+  <strong>Valor:</strong>
+  <%= @item.valor %>
+</p>
+
+<%= link_to 'Editar', edit_item_path(@item) %> |
+<%= link_to 'Voltar', itens_path %>

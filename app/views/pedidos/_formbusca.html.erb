@@ -1,0 +1,6 @@
+<%= form_tag(produtos_path, method: "get") do %>
+	<%= label_tag(:pdescricao, "Descrição:") %>
+	<%= text_field_tag(:pdescricao, @pdescricao) %>
+	<br/>
+	<%= submit_tag 'Filtrar' %>
+<% end %>

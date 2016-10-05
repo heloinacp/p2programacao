@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Itens</h1>
+
+<hr/>
+  <%= render 'formbusca' %>
+<hr/>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código do Item</th>
+      <th>Nome</th>
+      <th>Quantidade</th>
+      <th>Valor</th>
+      <th>Produto</th>
+      <th>Pedido</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @itens.each do |item| %>
+      <tr>
+        <td><%= item.idItem %></td>
+        <td><%= item.nome %></td>
+        <td><%= item.qtd %></td>
+        <td><%= item.valor %></td>
+        <td><%= item.produto.nome if item.produto %></td>
+        <td><%= item.pedido.descricao if item.pedido %></td>
+        <td><%= link_to 'Mostrar', item %></td>
+        <td><%= link_to 'Editar', edit_item_path(item) %></td>
+        <td><%= link_to 'Deletar', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Novo Item', new_item_path %>

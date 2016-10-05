@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  idItem: 1
+  nome: MyString
+  qtd: 1
+  valor: 1.5
+
+two:
+  idItem: 1
+  nome: MyString
+  qtd: 1
+  valor: 1.5

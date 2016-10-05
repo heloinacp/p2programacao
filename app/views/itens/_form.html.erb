@@ -1,0 +1,49 @@
+<%= form_for(item) do |f| %>
+  <% if item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+      <ul>
+      <% item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :"Código do Item" %>
+    <%= f.number_field :idItem %>
+  </div>
+
+  <div class="field">
+    <%= f.label :nome %>
+    <%= f.text_field :nome %>
+  </div>
+
+  <div class="field">
+    <%= f.label :quantidade %>
+    <%= f.number_field :qtd %>
+  </div>
+
+  <div class="field">
+    <%= f.label :valor %>
+    <%= f.text_field :valor %>
+  </div>
+
+  <div class="field">
+    <%= f.label :produto_id %><br>
+    <%= f.select :produto_id, options_for_select(Produto.all.map{|m|[m.nome,
+    m.idProduto]},f.object.produto_id) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :pedido_id %><br>
+    <%= f.select :pedido_id, options_for_select(Pedido.all.map{|m|[m.descricao,
+    m.idPedido]},f.object.pedido_id) %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

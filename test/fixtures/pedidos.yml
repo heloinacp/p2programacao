@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  idPedido: 1
+  dtPedido: 2016-09-30
+  endereco: MyString
+  numero: MyString
+  bairro: MyString
+  cep: MyString
+  valorTotal: 1.5
+
+two:
+  idPedido: 1
+  dtPedido: 2016-09-30
+  endereco: MyString
+  numero: MyString
+  bairro: MyString
+  cep: MyString
+  valorTotal: 1.5

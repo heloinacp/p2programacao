@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Produtos</h1>
+
+<hr/>
+  <%= render 'formbusca' %>
+<hr/>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código do Produto</th>
+      <th>Nome</th>
+      <th>Descrição</th>
+      <th>Valor</th>
+      <th>Foto</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @produtos.each do |produto| %>
+      <tr>
+        <td><%= produto.idProduto %></td>
+        <td><%= produto.nome %></td>
+        <td><%= produto.descricao %></td>
+        <td><%= produto.valor %></td>
+        <td><%= produto.foto %></td>
+        <td><%= link_to 'Mostrar', produto %></td>
+        <td><%= link_to 'Editar', edit_produto_path(produto) %></td>
+        <td><%= link_to 'Deletar', produto, method: :delete, data: { confirm: 'Are you sure' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Novo Produto', new_produto_path %>

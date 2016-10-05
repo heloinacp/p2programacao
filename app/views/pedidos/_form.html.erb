@@ -1,0 +1,65 @@
+<%= form_for(pedido) do |f| %>
+  <% if pedido.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pedido.errors.count, "error") %> prohibited this pedido from being saved:</h2>
+
+      <ul>
+      <% pedido.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :"Código do Pedido" %>
+    <%= f.number_field :idPedido %>
+  </div>
+
+  <div class="field">
+    <%= f.label :"Descrição do Pedido" %>
+    <%= f.number_field :descricao %>
+  </div>
+
+  <div class="field">
+    <br><br><br><%= f.label :"Data do Pedido" %><br><br>
+    <%= f.text_field :dtPedido , class: "datepicker" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :endereço %>
+    <%= f.text_field :endereco %>
+  </div>
+
+  <div class="field">
+    <%= f.label :número %>
+    <%= f.text_field :numero %>
+  </div>
+
+  <div class="field">
+    <%= f.label :bairro %>
+    <%= f.text_field :bairro %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cep %>
+    <%= f.text_field :cep %>
+  </div>
+
+  <div class="field">
+    <%= f.label :"Valor Total" %>
+    <%= f.text_field :valorTotal %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<script>
+
+  $(document).ready(function(){
+    $('.datepicker').datepicker({format: 'dd-mm-yyyy'});
+  });
+
+</script>
