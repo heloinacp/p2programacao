@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20161003151822) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "itens", force: :cascade do |t|
     t.integer  "idItem"
     t.string   "nome"
@@ -21,8 +24,8 @@ ActiveRecord::Schema.define(version: 20161003151822) do
     t.datetime "updated_at", null: false
     t.integer  "produto_id"
     t.integer  "pedido_id"
-    t.index ["pedido_id"], name: "index_itens_on_pedido_id"
-    t.index ["produto_id"], name: "index_itens_on_produto_id"
+    t.index ["pedido_id"], name: "index_itens_on_pedido_id", using: :btree
+    t.index ["produto_id"], name: "index_itens_on_produto_id", using: :btree
   end
 
   create_table "pedidos", force: :cascade do |t|
@@ -61,20 +64,10 @@ ActiveRecord::Schema.define(version: 20161003151822) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.index ["email"], name: "index_useres_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_useres_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_useres_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_useres_on_reset_password_token", unique: true, using: :btree
   end
 
-  create_table "usuarios", force: :cascade do |t|
-    t.integer  "idUsuario"
-    t.string   "email"
-    t.string   "senha"
-    t.string   "nome"
-    t.date     "dtNascimento"
-    t.string   "cpf"
-    t.string   "foto"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
+  add_foreign_key "itens", "pedidos"
+  add_foreign_key "itens", "produtos"
 end
